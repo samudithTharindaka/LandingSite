@@ -1,10 +1,52 @@
-import React from 'react';
+import React,{useRef,useEffect} from 'react';
+import gsap from 'gsap';
+import {ScrollTrigger} from 'gsap/ScrollTrigger';
 import Aurora from './components/road';
 import GradientText from './components/GradientText';
 import RotatingText from './components/TextReveal';
 import SplashCursor from './components/SplashCurser';
+gsap.registerPlugin(ScrollTrigger);
 
 function App() {
+const imgRef = useRef(null);
+useEffect(() => {
+  const el = imgRef.current;
+  gsap.fromTo(el, 
+    { opacity: 0 }, 
+    { 
+      opacity: 1, 
+      duration: 3, 
+      delay: 0.1, 
+      scrollTrigger: {
+        trigger: el,
+        start: "top 50%", // Triggers when 80% of the image is in view
+        toggleActions: "play none none none",
+      }
+    }
+  );
+}, []);
+
+useEffect(() => {
+  const el = imgRef.current;
+
+  gsap.fromTo(el, 
+    { opacity: 0 }, 
+    { 
+      opacity: 1, 
+      duration: 3, 
+      delay: 1, 
+      scrollTrigger: {
+        trigger: el,
+        start: "top 80%", // Trigger when 80% of image is in view
+        end: "top 20%",   // End animation when image reaches 20% from top
+        toggleActions: "play none reverse none", // Hide when scrolling up
+        scrub: true, // Smooth transition
+      }
+    }
+  );
+}, []);
+
+
   return (
     <div className="App h-full object-center">
       <SplashCursor />
@@ -40,7 +82,14 @@ function App() {
 
 
        </div>
-    
+       <div className=" bottom-0 right-0 p-4 h-[100vh] text-white">
+          <img
+            src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg"
+            alt="background"
+            className="object-cover h-full w-full"
+            ref={imgRef}
+          />
+        </div>
     </div>
   );
 }
