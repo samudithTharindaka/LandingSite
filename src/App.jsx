@@ -100,7 +100,16 @@ function App() {
           className="object-cover z-20 h-[40%] w-[20%] mt-[-20%] absolute"
           ref={hudImgRef}
         />
+        
       </div>
+
+      {/* <div className="absolute bottom-0 right-0 p-4 h-[100vh] text-white">
+
+lorem ipsum dolor sit amet  consectetur adipisicing elit.
+<br/>
+<br/>
+<br/>
+</div> */}
     </div>
   );
 }
