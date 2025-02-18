@@ -5,6 +5,7 @@ import Aurora from './components/road';
 import GradientText from './components/GradientText';
 import RotatingText from './components/TextReveal';
 import SplashCursor from './components/SplashCurser';
+import { ThreeDCardDemo } from './components/cardTest';
 gsap.registerPlugin(ScrollTrigger);
 
 function App() {
@@ -110,6 +111,8 @@ lorem ipsum dolor sit amet  consectetur adipisicing elit.
 <br/>
 <br/>
 </div> */}
+
+      <ThreeDCardDemo />
     </div>
   );
 }
