@@ -6,6 +6,7 @@ import GradientText from './components/GradientText';
 import RotatingText from './components/TextReveal';
 import SplashCursor from './components/SplashCurser';
 import { ThreeDCardDemo } from './components/cardTest';
+import { CoverDemo } from './components/callToAction';
 gsap.registerPlugin(ScrollTrigger);
 
 function App() {
@@ -112,7 +113,8 @@ lorem ipsum dolor sit amet  consectetur adipisicing elit.
 <br/>
 </div> */}
 
-      <ThreeDCardDemo />
+      <ThreeDCardDemo />\
+      <CoverDemo />
     </div>
   );
 }
